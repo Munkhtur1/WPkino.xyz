@@ -53,7 +53,7 @@ $(document).ready(function(){
 	</div>
   <!-- Search heseg -->
   <form class="example" action="hailt.html">
-    <input  id="myText" type="text" placeholder="Search.." name="search">
+    <input  id="myText" type="text" placeholder="Хайлт..." name="search">
     <button type="submit" id="myIn"><i class="fa fa-search"></i></button>
 
   </form>
@@ -71,7 +71,7 @@ $(document).ready(function(){
 <div class="numbertext">2 / 3</div>
 <img src="img/God.jpg" style="width:100%">
 <div class="fuck">
-<div class="text">The godfather</div>
+<div class="text">The Godfather</div>
 <div class="logos"><img src="img/godfather.jpg" width="180px"></div>
 <div class="play"></div>
 </div>
@@ -83,7 +83,7 @@ $(document).ready(function(){
 <div class="numbertext">1 / 3</div>
 <img src="img/shaw.jpg" style="width:100%">
 <div class="fuck">
-<div class="text"><b>Shawshank Redemption</b></div>
+<div class="text"><b>The Shawshank Redemption</b></div>
 <div class="logos"><img src="img/shawshank.jpg" width="180px"></div>
 <div class="play"></div>
 </div>
@@ -120,7 +120,7 @@ $(document).ready(function(){
 	<div id="fuckingright">
 		<div id="contentright">
       <br><br>
-      <div id="sda"><h1>Tun udahgui...</h1></div>
+      <div id="sda"><h1>Тун Удахгүй...</h1></div>
        <div id="udahgui"><img src="img/fightclub.jpg"  >
      </br>
        <img src="img/12.jpg"  >
@@ -131,7 +131,7 @@ $(document).ready(function(){
   <br><br>
 
   <div class="boddy">
-  <h2 class="midname">MOVIES</h2>
+  <h2 class="midname">MOVIES</h2>       
     <p></p>
     <br><br>
 
@@ -139,37 +139,56 @@ $(document).ready(function(){
       <div class="items">
       <thead>
       <tr>
-        <th>Zurag</th>
-        <th>kino</th>
-        <th>turul</th>
-        <th>kino</th>
-        <th>turul</th>
+        <th><h2>Бүх Цаг Үеийн Шилдэг 100 Кино</h2></th>    
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
+	  
+
+    
       </thead>
+	  
+	  <table id="employee_table">
       <tbody id="myTable">
       <tr id="mur">
-
-        <td><img src="img/shawshank.jpg" ><div class="plaay"><ig src="./img/playwhite.pn"></div>
-         <p><a href="https://ok.ru/video/1954097924740"></a></p></td>
-        <td><img src="img/godfather.jpg" ><div class="plaay"><i class="far fa-play-circle"></i></div>
-          <p><a href="https://ok.ru/video/1912143481476"></a></p></td>
-          <td><img src="img/darkknight.jpg" ><div class="plaay"><i class="far fa-play-circle"></i></div>
-            <p><a href="https://ok.ru/video/1912144595588"></a></p></td>
-            <td><img src="img/fightclub.jpg" ><div class="plaay"><i class="far fa-play-circle"></i></div>
-              <p><a href="html_images.asp"></a></p></td>
-              <td><img src="img/12.jpg" ><div class="plaay"><i class="far fa-play-circle"></i></div>
-                <p><a href="html_images.asp"></a></p></td>
+         
+        <td><a href="https://ok.ru/video/1954097924740"><img  src="img/shawshank.jpg" ></a></td>
+		<td><a href="https://ok.ru/video/1912143481476"><img  src="img/godfather.jpg" ></a></td>
+		<td><a href="https://ok.ru/video/1912144595588"><img  src="img/darkknight.jpg" ></a></td>
+		<td><a href="https://ok.ru/video/1954097924740"><img  src="img/fightclub.jpg" ></a></td>
+		<td><a href="https://ok.ru/video/1954097924740"><img  src="img/12.jpg" ></a></td>
+        
+         
       </tr>
-      <tr>
-        <th><a href="https://ok.ru/video/1954097924740">The Shawshank Redemption</a></th>
-        <th><a href="https://ok.ru/video/1912143481476">The Godfather</a></th>
-        <th><a href="https://ok.ru/video/1912144595588">The Dark Knight</a></th>
-        <th><a href="html_images.asp">The Fight Club</a></th>
-        <th><a href="html_images.asp">12 Angry Men</a></th>
-      </tr>
+	  <script>
+$(document).ready(function(){
+     $.getJSON("https://api.npoint.io/be12e106a616d1517d14", function(data){
+       var employee_data = '';
+       $.each(data, function(key,value){
+	   
+           employee_data += '<tr>';
+           '<div id="ner">'
+           employee_data += '<th>'+value.name1+'</th>';
+			employee_data += '<th>'+value.name2+'</th>';
+           employee_data += '<th>'+value.name3+'</th>';
+		   employee_data += '<th>'+value.name4+'</th>';
+		   employee_data += '<th>'+value.name5+'</th>';
+		   '</div>'
+           employee_data += '</tr>';
+		   
+       }
+	   );
+       $('#employee_table').append(employee_data);
+     });
+   });
+</script>
+      
 
 
       </tbody>
+	  </table>
       </div>
     </table>
 
@@ -208,8 +227,10 @@ $(document).ready(function(){
             </tr>
         </tbody>
       </table>
-    <p>Note </p>
+    <p> </p>
   </div>
+  <br><br>
+
     <!-- dood heseg -->
     <div id="both">
 	</br></br>
@@ -242,27 +263,7 @@ $(document).ready(function(){
     });
   </script>
   <script src="js/js-slide.js"></script>
-  <script>
-var slideIndex = 0;
-showSlides();
 
-function showSlides() {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-  setTimeout(showSlides, 3000); // Change image every 2 seconds
-}
-</script>
   <!-- js duusaw -->
 </body>
 
